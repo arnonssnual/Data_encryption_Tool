@@ -7,7 +7,7 @@ import gcs_app as gcs
 #Neo4j connection
 neo4j_uri = "neo4j+s://97aba373.databases.neo4j.io"
 neo4j_user = "neo4j"
-neo4j_password = "_XtfBTLs_DIBUTifBRpWWhBsJVeKx_BuaM7cuZNaLlM"
+neo4j_password = "-----------------------------------"
 neo4j = neo4j.App(neo4j_uri, neo4j_user, neo4j_password)
 
 
