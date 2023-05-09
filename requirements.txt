@@ -1,0 +1,5 @@
+Flask==2.2.3
+neo4j==5.7.0
+neo4j-driver==5.8.0
+pycryptodome==3.17
+google-cloud-storage==2.8.0

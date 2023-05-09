@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        div[class="login_form"] {
+            background-color: #fff;
+            border: 2px solid #ff6e77;
+            width: 300px;
+            min-height: fit-content;
+            margin: auto;
+            margin-top: 100px;
+            padding: 14px;
+            text-align: center;
+            border-radius: 12px;
+            padding-bottom: 22px;
+
+
+        }
+
+        input {
+            margin: 10px;
+            border-radius: 12px;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        div[name="button"] {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .uiverse-btn {
+            /* btn background */
+            --btn_bg: #ff6e77;
+            --btn_hover_bg: #fff;
+            /* btn border */
+            --btn_border_width: 0.125em;
+            --btn_border_color: #3F3F3F;
+            --btn_border_radius: 0.1875em;
+            /* btn text */
+            --btn_text_color: var(--btn_hover_bg);
+            --btn_hover_text_color: var(--btn_border_color);
+            --btn_letter_spacing: 0.0625em;
+            /* btn font */
+            --btn_font_size: 16px;
+            --btn_font_weight: bold;
+            --btn_font_family: Menlo, Roboto Mono, monospace;
+            /* btn transition */
+            --btn-transition: .3s cubic-bezier(0.75, 0, 0.125, 1);
+            /* btn padding */
+            --btn_padding_x: 1.875em;
+            --btn_padding_y: 0.75em;
+        }
+
+        .uiverse-btn {
+            box-sizing: border-box;
+            color: var(--btn_text_color);
+            border: none;
+            border-radius: var(--btn_border_radius);
+            background-color: var(--btn_hover_bg);
+            padding: var(--btn_padding_y) var(--btn_padding_x);
+            font-weight: var(--btn_font_weight);
+            font-family: var(--btn_font_family);
+            font-size: var(--btn_font_size);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: var(--btn-transition);
+            letter-spacing: var(--btn_letter_spacing);
+        }
+
+        .uiverse-btn::before {
+            content: "";
+            background-color: var(--btn_bg);
+            position: absolute;
+            inset: 0;
+            transition: var(--btn-transition);
+            pointer-events: none;
+        }
+
+        .uiverse-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .uiverse-btn:hover {
+            color: var(--btn_hover_text_color);
+            box-shadow: inset 0 0 0 var(--btn_border_width) var(--btn_border_color);
+        }
+
+        .uiverse-btn:hover::before {
+            transform: scaleX(0.75);
+            opacity: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="/login" method="POST">
+        <div class="login_form">
+            <h1>Login</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flashes_error" style="color: red;font-weight: bold;padding-left: 0px;">
+                {{ messages[0] }}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <input type="text" name="username" class="input" placeholder="Username.">
+            <input type="password" name="password" class="input" placeholder="Password.">
+            <div name="button">
+                <button type="submit" class="uiverse-btn">
+                    <span>Login</span></button>
+                <a href="/register">Create Account</a>
+            </div>
+        </div>
+    </form>
+</body>
+<style>
+    .login_form form {
+        box-shadow: 0px 2px 4px rgba(65, 26, 26, 0.3);
+    }
+
+    #inputFields {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #pm_button_container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input {
+        margin: 7px;
+        font-weight: 500;
+        font-size: 14px;
+        height: 40px;
+        border-radius: 10px;
+        padding-left: 10px;
+        border: none;
+        border-bottom: 5px solid #d8d8d8;
+        background-color: #e5e5e5;
+        outline: none;
+    }
+
+    .input:focus {
+        border-bottom: 5px solid #ff6e77;
+        -webkit-transition: 0.1s;
+        transition: 0.5s;
+    }
+</style>
+
+</html>
